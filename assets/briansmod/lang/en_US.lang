@@ -1,5 +1,6 @@
-item.firesword.name=Fire Sword
-item.fireingot.name=Fire Ingot
-item.fireaxe.name=Fire Axe
-item.fireshovel.name=Fire Shovel
-item.firepickaxe.name=Fire Pickaxe
+item.sdagger.name=Steele Dagger
+item.tdagger.name=Reinforced Steele Dagger
+itemGroup.briansmod=Brian's Mod
+tile.pigskinblock.name=Pig Skin Block
+item.pigskin.name=Pig Skin
+item.flipper.name=The Mighty Flipper
