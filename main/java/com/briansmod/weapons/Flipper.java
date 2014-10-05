@@ -1,0 +1,12 @@
+package com.briansmod.weapons;
+
+import net.minecraft.item.ItemSword;
+
+public class Flipper extends ItemSword{
+
+	public Flipper(ToolMaterial p_i45356_1_) {
+		super(p_i45356_1_);
+		// TODO Auto-generated constructor stub
+	}
+
+}
