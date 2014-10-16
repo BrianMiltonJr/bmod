@@ -62,6 +62,7 @@ public class Main {
 		GameRegistry.addShapedRecipe(new ItemStack(flipper, 1), new Object[] {" GG", " PG", "P  ", 'P', pigskinblock, 'G', Blocks.gold_block});
 		GameRegistry.addShapedRecipe(new ItemStack(pigskinblock, 1), new Object[] {"PPP", "PPP", "PPP", 'P', pigskin});
 		GameRegistry.addSmelting(Items.cooked_porkchop, new ItemStack(pigskin), 450);
+	
 	}
      
 	@EventHandler
