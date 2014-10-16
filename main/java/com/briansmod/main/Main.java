@@ -2,6 +2,9 @@ package com.briansmod.main;
 
 import com.briansmod.blocks.PigSkinBlock;
 import com.briansmod.items.PigSkin;
+import com.briansmod.tools.PigSkinAxe;
+import com.briansmod.tools.PigSkinHoe;
+import com.briansmod.tools.PigSkinShovel;
 import com.briansmod.weapons.Dagger;
 import com.briansmod.weapons.Flipper;
 
@@ -38,6 +41,10 @@ public class Main {
 	public static ToolMaterial tsteeleToolMaterial = EnumHelper.addToolMaterial("tsteeleToolMaterial", 3, 800, 7.5f, 2.7f, 10);
 	public static ToolMaterial pigSkinToolMaterial = EnumHelper.addToolMaterial("pigSkinToolMaterial",3, 450, 4.5f, 15.0f, 10);
 	
+	public static Item pigaxe;
+	public static Item pigspade;
+	public static Item pighoe;
+	public static Item pigpick;
 	public static Item flipper;
 	public static Block pigskinblock;
 	public static Item pigskin;
@@ -47,12 +54,20 @@ public class Main {
 	@EventHandler
      public void preInit(FMLPreInitializationEvent event) {
 		
+		pigaxe = new PigSkinAxe(pigSkinToolMaterial).setUnlocalizedName("pigaxe").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigaxe");
+		pigspade = new PigSkinShovel(pigSkinToolMaterial).setUnlocalizedName("pigspade").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigspade");
+		pighoe = new PigSkinHoe(pigSkinToolMaterial).setUnlocalizedName("pighoe").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pighoe");
+		pigpick = new PigSkinAxe(pigSkinToolMaterial).setUnlocalizedName("pigpick").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigpick");
 		flipper = new Flipper(pigSkinToolMaterial).setUnlocalizedName("flipper").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:flipper");
 		pigskinblock = new PigSkinBlock(Material.wood).setCreativeTab(this.tabCustom).setBlockName("pigskinblock").setBlockTextureName("briansmod:pigskinblock");
 		pigskin = new PigSkin().setCreativeTab(this.tabCustom).setMaxStackSize(16).setUnlocalizedName("pigskin").setTextureName("briansmod:pigskin");
 		sdagger = new Dagger(steeleToolMaterial).setCreativeTab(this.tabCustom).setMaxStackSize(1).setUnlocalizedName("sdagger").setTextureName("briansmod:steeledagger");
 		tdagger = new Dagger(tsteeleToolMaterial).setCreativeTab(this.tabCustom).setMaxStackSize(1).setUnlocalizedName("tdagger").setTextureName("briansmod:rsteeldagger");
 		
+		GameRegistry.registerItem(pigaxe, "pigaxe");
+		GameRegistry.registerItem(pigspade, "pigspade");
+		GameRegistry.registerItem(pighoe, "pighoe");
+		GameRegistry.registerItem(pigpick, "pigpick");
 		GameRegistry.registerItem(flipper, "flipper");
 		GameRegistry.registerBlock(pigskinblock, "pigskinblock");
 		GameRegistry.registerItem(pigskin, "pigskin");
