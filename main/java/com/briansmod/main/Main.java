@@ -2,6 +2,7 @@ package com.briansmod.main;
 
 import com.briansmod.blocks.PigSkinBlock;
 import com.briansmod.blocks.ReggieWeedCrop;
+import com.briansmod.items.blunt;
 import com.briansmod.items.PigSkin;
 import com.briansmod.items.ReggieSeed;
 import com.briansmod.tools.PigSkinAxe;
@@ -17,7 +18,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -62,7 +65,7 @@ public class Main {
 	@EventHandler
      public void preInit(FMLPreInitializationEvent event) {
 		
-		blunt = new Item().setUnlocalizedName("blunt").setCreativeTab(this.tabCustom).setMaxStackSize(16).setTextureName("briansmod:blunt");
+		blunt = new blunt(0, 0, false).setUnlocalizedName("blunt").setCreativeTab(this.tabCustom).setMaxStackSize(16).setTextureName("briansmod:blunt");
 		rollingpaper = new Item().setUnlocalizedName("rollingpaper").setCreativeTab(this.tabCustom).setMaxStackSize(8).setTextureName("briansmod:rollingpaper");
 		reggieWeedPlant = new ReggieWeedCrop().setBlockName("reggieWeedPlant");
 		reggieseed = new ReggieSeed(reggieWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("reggieseed").setTextureName("briansmod:reggieseed");
