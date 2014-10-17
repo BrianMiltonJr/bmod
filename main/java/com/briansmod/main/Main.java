@@ -1,7 +1,9 @@
 package com.briansmod.main;
 
 import com.briansmod.blocks.PigSkinBlock;
+import com.briansmod.blocks.ReggieWeedCrop;
 import com.briansmod.items.PigSkin;
+import com.briansmod.items.ReggieSeed;
 import com.briansmod.tools.PigSkinAxe;
 import com.briansmod.tools.PigSkinHoe;
 import com.briansmod.tools.PigSkinShovel;
@@ -40,7 +42,11 @@ public class Main {
 	public static ToolMaterial steeleToolMaterial = EnumHelper.addToolMaterial("steeleToolMaterial", 3, 750, 6.0f, 2.5f, 10);
 	public static ToolMaterial tsteeleToolMaterial = EnumHelper.addToolMaterial("tsteeleToolMaterial", 3, 800, 7.5f, 2.7f, 10);
 	public static ToolMaterial pigSkinToolMaterial = EnumHelper.addToolMaterial("pigSkinToolMaterial",3, 450, 4.5f, 15.0f, 10);
-	
+	public static Item blunt;
+	public static Item rollingpaper;
+	public static Item reggieseed;
+	public static Item reggieWeed;
+	public static Block reggieWeedPlant;
 	public static Item pigaxe;
 	public static Item pigspade;
 	public static Item pighoe;
@@ -51,9 +57,16 @@ public class Main {
 	public static Item sdagger;
 	public static Item tdagger;
 	
+	public static final String modid = "briansmod";
+	
 	@EventHandler
      public void preInit(FMLPreInitializationEvent event) {
 		
+		blunt = new Item().setUnlocalizedName("blunt").setCreativeTab(this.tabCustom).setMaxStackSize(16).setTextureName("briansmod:blunt");
+		rollingpaper = new Item().setUnlocalizedName("rollingpaper").setCreativeTab(this.tabCustom).setMaxStackSize(8).setTextureName("briansmod:rollingpaper");
+		reggieWeedPlant = new ReggieWeedCrop().setBlockName("reggieWeedPlant");
+		reggieseed = new ReggieSeed(reggieWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("reggieseed").setTextureName("briansmod:reggieseed");
+		reggieWeed = new Item().setUnlocalizedName("reggieWeed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:reggieWeed");
 		pigaxe = new PigSkinAxe(pigSkinToolMaterial).setUnlocalizedName("pigaxe").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigaxe");
 		pigspade = new PigSkinShovel(pigSkinToolMaterial).setUnlocalizedName("pigspade").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigspade");
 		pighoe = new PigSkinHoe(pigSkinToolMaterial).setUnlocalizedName("pighoe").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pighoe");
@@ -64,6 +77,11 @@ public class Main {
 		sdagger = new Dagger(steeleToolMaterial).setCreativeTab(this.tabCustom).setMaxStackSize(1).setUnlocalizedName("sdagger").setTextureName("briansmod:steeledagger");
 		tdagger = new Dagger(tsteeleToolMaterial).setCreativeTab(this.tabCustom).setMaxStackSize(1).setUnlocalizedName("tdagger").setTextureName("briansmod:rsteeldagger");
 		
+		GameRegistry.registerItem(blunt, "blunt");
+		GameRegistry.registerItem(rollingpaper, "rollingpaper");
+		GameRegistry.registerBlock(reggieWeedPlant, "reggieWeedPlant");
+		GameRegistry.registerItem(reggieWeed, "reggieWeed");
+		GameRegistry.registerItem(reggieseed, "reggieseed");
 		GameRegistry.registerItem(pigaxe, "pigaxe");
 		GameRegistry.registerItem(pigspade, "pigspade");
 		GameRegistry.registerItem(pighoe, "pighoe");
@@ -74,6 +92,7 @@ public class Main {
 		GameRegistry.registerItem(sdagger, "sdagger");
 		GameRegistry.registerItem(tdagger, "tdagger");
 		
+		GameRegistry.addShapelessRecipe(new ItemStack(blunt, 1), new ItemStack(reggieWeed, 1), new ItemStack(reggieWeed, 1), new ItemStack(rollingpaper, 1));
 		GameRegistry.addShapedRecipe(new ItemStack(flipper, 1), new Object[] {" GG", " PG", "P  ", 'P', pigskinblock, 'G', Blocks.gold_block});
 		GameRegistry.addShapedRecipe(new ItemStack(pigskinblock, 1), new Object[] {"PPP", "PPP", "PPP", 'P', pigskin});
 		GameRegistry.addSmelting(Items.cooked_porkchop, new ItemStack(pigskin), 450);
