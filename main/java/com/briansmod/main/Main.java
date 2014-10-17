@@ -95,6 +95,7 @@ public class Main {
 		GameRegistry.registerItem(sdagger, "sdagger");
 		GameRegistry.registerItem(tdagger, "tdagger");
 		
+		GameRegistry.addShapelessRecipe(new ItemStack(reggieseed, 1), new ItemStack(Items.wheat_seeds, 1), new ItemStack(Items.wheat_seeds, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(rollingpaper, 1), new ItemStack(Items.paper, 1), new ItemStack(Items.paper));
 		GameRegistry.addShapelessRecipe(new ItemStack(blunt, 1), new ItemStack(reggieWeed, 1), new ItemStack(reggieWeed, 1), new ItemStack(rollingpaper, 1));
 		GameRegistry.addShapedRecipe(new ItemStack(flipper, 1), new Object[] {" GG", " PG", "P  ", 'P', pigskinblock, 'G', Blocks.gold_block});
