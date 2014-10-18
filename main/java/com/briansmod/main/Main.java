@@ -1,17 +1,5 @@
 package com.briansmod.main;
 
-import com.briansmod.blocks.PigSkinBlock;
-import com.briansmod.blocks.ReggieWeedCrop;
-import com.briansmod.blocks.SeedMachine;
-import com.briansmod.items.blunt;
-import com.briansmod.items.PigSkin;
-import com.briansmod.items.ReggieSeed;
-import com.briansmod.tools.PigSkinAxe;
-import com.briansmod.tools.PigSkinHoe;
-import com.briansmod.tools.PigSkinShovel;
-import com.briansmod.weapons.Dagger;
-import com.briansmod.weapons.Flipper;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,21 +7,32 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraftforge.common.util.EnumHelper;
+
+import com.briansmod.blocks.BMCrop;
+import com.briansmod.blocks.PigSkinBlock;
+import com.briansmod.blocks.PresidentialWeedCrop;
+import com.briansmod.blocks.SeedMachine;
+import com.briansmod.items.PigSkin;
+import com.briansmod.items.blunt;
+import com.briansmod.tools.PigSkinAxe;
+import com.briansmod.tools.PigSkinHoe;
+import com.briansmod.tools.PigSkinShovel;
+import com.briansmod.weapons.Dagger;
+import com.briansmod.weapons.Flipper;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid="briansmod", name="briansmod", version="2.1.0")
+@Mod(modid="briansmod", name="briansmod", version="2.1.2")
 public class Main {
 	
 	//Sets Up Creative Tab
@@ -116,44 +115,44 @@ public class Main {
 		---------------------------------------------------------- 
 		*/
 		//Weed Seeds
-		reggieSeed = new ReggieSeed(reggieWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("reggieseed").setTextureName("briansmod:reggieseed");
-		perpSeed = new ReggieSeed(perpWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("perpseed").setTextureName("briansmod:perpseed");
-		presidentialSeed = new ReggieSeed(presidentialWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("presidentialseed").setTextureName("briansmod:presseed");
-		olSeed = new ReggieSeed(olWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("olseed").setTextureName("briansmod:olseed");
+		reggieSeed = new ItemSeeds(reggieWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("reggieSeed").setTextureName("briansmod:reggieseed");
+		perpSeed = new ItemSeeds(perpWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("perpSeed").setTextureName("briansmod:perpseed");
+		presidentialSeed = new ItemSeeds(presidentialWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("presidentialSeed").setTextureName("briansmod:presseed");
+		olSeed = new ItemSeeds(olWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("olSeed").setTextureName("briansmod:olseed");
 		
 		//Weed Plants
-		reggieWeedPlant = new ReggieWeedCrop().setBlockName("reggieweedplant");
-		perpWeedPlant = new ReggieWeedCrop().setBlockName("perpweedplant");
-		presidentialWeedPlant = new ReggieWeedCrop().setBlockName("presidentialweedplant");
-		olWeedPlant = new ReggieWeedCrop().setBlockName("olweedplant");
+		reggieWeedPlant = new BMCrop().setBlockName("reggieWeedPlant");
+		perpWeedPlant = new BMCrop().setBlockName("perpWeedPlant");
+		presidentialWeedPlant = new BMCrop().setBlockName("presidentialWeedPlant");
+		olWeedPlant = new BMCrop().setBlockName("olWeedPlant");
 		
 		//Weed Strains
-		reggieWeed = new Item().setUnlocalizedName("reggieweed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:reggieweed");
-		perpWeed = new Item().setUnlocalizedName("perpweed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:perpweed");
-		presidentialWeed = new Item().setUnlocalizedName("presidentialweed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:presidentialweed");
-		olWeed = new Item().setUnlocalizedName("olweed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:olweed");
+		reggieWeed = new Item().setUnlocalizedName("reggieWeed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:reggieweed");
+		perpWeed = new Item().setUnlocalizedName("perpWeed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:perpweed");
+		presidentialWeed = new Item().setUnlocalizedName("presidentialWeed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:presidentialweed");
+		olWeed = new Item().setUnlocalizedName("olWeed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:olweed");
 		
 		//Blunts
-		reggieBlunt = new blunt(0, 0, false, 40, 1, 1.0f).setUnlocalizedName("reggieblunt").setCreativeTab(this.tabCustom).setMaxStackSize(16).setTextureName("briansmod:blunt");
-		rollingPapers = new Item().setUnlocalizedName("rollingpapers").setCreativeTab(this.tabCustom).setMaxStackSize(8).setTextureName("briansmod:rollingpaper");
+		reggieBlunt = new blunt(0, 0, false, 40, 1, 1.0f).setUnlocalizedName("reggieBlunt").setCreativeTab(this.tabCustom).setMaxStackSize(16).setTextureName("briansmod:blunt");
+		rollingPapers = new Item().setUnlocalizedName("rollingPapers").setCreativeTab(this.tabCustom).setMaxStackSize(8).setTextureName("briansmod:rollingpaper");
 		
 		//Machines
-		seedMachine = new SeedMachine(Material.iron).setHardness(5f).setStepSound(Block.soundTypeMetal).setBlockName("seedmachine").setCreativeTab(this.tabCustom).setBlockTextureName("briansmod:seedmachine");
-		geneticModule = new Item().setUnlocalizedName("geneticmodule").setCreativeTab(this.tabCustom).setMaxStackSize(64).setTextureName("briansmod:gmodule");
-		mPlate = new Item().setUnlocalizedName("mplate").setCreativeTab(this.tabCustom).setMaxStackSize(64).setTextureName("briansmod:mplate");
+		seedMachine = new SeedMachine(Material.iron).setHardness(5f).setStepSound(Block.soundTypeMetal).setBlockName("seedMachine").setCreativeTab(this.tabCustom).setBlockTextureName("briansmod:seedmachine");
+		geneticModule = new Item().setUnlocalizedName("geneticModule").setCreativeTab(this.tabCustom).setMaxStackSize(64).setTextureName("briansmod:gmodule");
+		mPlate = new Item().setUnlocalizedName("mPlate").setCreativeTab(this.tabCustom).setMaxStackSize(64).setTextureName("briansmod:mplate");
 		
 		//PigSkin
-		pigAxe = new PigSkinAxe(pigSkinToolMaterial).setUnlocalizedName("pigaxe").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigaxe");
-		pigSpade = new PigSkinShovel(pigSkinToolMaterial).setUnlocalizedName("pigspade").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigspade");
-		pigHoe = new PigSkinHoe(pigSkinToolMaterial).setUnlocalizedName("pighoe").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pighoe");
-		pigPick = new PigSkinAxe(pigSkinToolMaterial).setUnlocalizedName("pigpick").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigpick");
+		pigAxe = new PigSkinAxe(pigSkinToolMaterial).setUnlocalizedName("pigAxe").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigaxe");
+		pigSpade = new PigSkinShovel(pigSkinToolMaterial).setUnlocalizedName("pigSpade").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigspade");
+		pigHoe = new PigSkinHoe(pigSkinToolMaterial).setUnlocalizedName("pigHoe").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pighoe");
+		pigPick = new PigSkinAxe(pigSkinToolMaterial).setUnlocalizedName("pigPick").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigpick");
 		flipper = new Flipper(pigSkinToolMaterial).setUnlocalizedName("flipper").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:flipper");
-		pigSkinBlock = new PigSkinBlock(Material.wood).setHardness(0.5f).setCreativeTab(this.tabCustom).setBlockName("pigskinblock").setBlockTextureName("briansmod:pigskinblock");
-		pigSkin = new PigSkin().setCreativeTab(this.tabCustom).setMaxStackSize(16).setUnlocalizedName("pigskin").setTextureName("briansmod:pigskin");
+		pigSkinBlock = new PigSkinBlock(Material.wood).setHardness(0.5f).setCreativeTab(this.tabCustom).setBlockName("pigSkinBlock").setBlockTextureName("briansmod:pigskinblock");
+		pigSkin = new PigSkin().setCreativeTab(this.tabCustom).setMaxStackSize(16).setUnlocalizedName("pigSkin").setTextureName("briansmod:pigskin");
 		
 		//Daggers
-		sDagger = new Dagger(steeleToolMaterial).setCreativeTab(this.tabCustom).setMaxStackSize(1).setUnlocalizedName("sdagger").setTextureName("briansmod:steeledagger");
-		tDagger = new Dagger(tsteeleToolMaterial).setCreativeTab(this.tabCustom).setMaxStackSize(1).setUnlocalizedName("tdagger").setTextureName("briansmod:rsteeldagger");
+		sDagger = new Dagger(steeleToolMaterial).setCreativeTab(this.tabCustom).setMaxStackSize(1).setUnlocalizedName("sDagger").setTextureName("briansmod:steeledagger");
+		tDagger = new Dagger(tsteeleToolMaterial).setCreativeTab(this.tabCustom).setMaxStackSize(1).setUnlocalizedName("tDagger").setTextureName("briansmod:rsteeldagger");
 		
 		/*
 		----------------------------------------------------------

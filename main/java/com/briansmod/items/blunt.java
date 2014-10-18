@@ -10,15 +10,14 @@ public class blunt extends ItemFood{
 		super(hunger, saturation, isWolfFood);
 		
 		Random rand = new Random();
-		rand.nextInt(2);
+		rand.nextInt(1);
 			
 		if(rand.nextInt() == 0){
 			setPotionEffect(Potion.confusion.id, duration, amplify, probability);
 		}if(rand.nextInt() == 1){
 			setPotionEffect(Potion.hunger.id, duration, amplify, probability);
-		}if(rand.nextInt() == 2){
-			setPotionEffect(Potion.confusion.id, duration, amplify, probability);
 			setPotionEffect(Potion.confusion.id, duration, amplify, probability);
 		}
 	}
 }
+
