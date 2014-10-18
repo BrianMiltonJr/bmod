@@ -39,7 +39,7 @@ public class ReggieWeedCrop extends BlockCrops {
 	}
 	
 	protected Item func_149866_i() {
-		return Main.reggieseed;
+		return Main.reggieSeed;
 	}
 	
 	protected Item func_149865_P() {
