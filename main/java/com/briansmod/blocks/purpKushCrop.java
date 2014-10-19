@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
-public class PerpCrop extends BlockCrops{
+public class purpKushCrop extends BlockCrops{
 	@SideOnly(Side.CLIENT)
 	private IIcon[] iconArray;
 	
@@ -40,10 +40,10 @@ public class PerpCrop extends BlockCrops{
 	}
 	
 	protected Item func_149866_i() {
-		return Main.perpSeed;
+		return Main.purpKushSeed;
 	}
 	
 	protected Item func_149865_P() {
-		return Main.perpStrain;
+		return Main.purpKushStrain;
 	}
 }

@@ -16,6 +16,8 @@ import com.briansmod.blocks.PerpCrop;
 import com.briansmod.blocks.PigSkinBlock;
 import com.briansmod.blocks.PresidentialCrop;
 import com.briansmod.blocks.WeedCrop;
+import com.briansmod.blocks.purpKushCrop;
+import com.briansmod.blocks.sourDCrop;
 import com.briansmod.items.PigSkin;
 import com.briansmod.items.blunt;
 import com.briansmod.tools.PigSkinAxe;
@@ -69,18 +71,24 @@ public class Main {
 	public static Item perpSeed;
 	public static Item presidentialSeed;
 	public static Item olSeed;
+	public static Item purpKushSeed;
+	public static Item sourDSeed;
 	
 	//Weed Strains
 	public static Item reggieStrain;
 	public static Item perpStrain;
 	public static Item presidentialStrain;
 	public static Item olStrain;
+	public static Item purpKushStrain;
+	public static Item sourDStrain;
 	
 	//Weed plants
 	public static Block reggieWeedPlant;
 	public static Block perpWeedPlant;
 	public static Block presidentialWeedPlant;
 	public static Block olWeedPlant;
+	public static Block purpKushWeedPlant;
+	public static Block sourDWeedPlant;
 	
 	//Blunt Items
 	public static Item rollingPapers;
@@ -88,6 +96,8 @@ public class Main {
 	public static Item perpBlunt;
 	public static Item presidentialBlunt;
 	public static Item olBlunt;
+	public static Item purpKushBlunt;
+	public static Item sourDBlunt;
 	
 	//PigSkin
 	public static Item pigAxe;
@@ -122,18 +132,24 @@ public class Main {
 		perpWeedPlant = new PerpCrop().setBlockName("perpWeedPlant");
 		presidentialWeedPlant = new PresidentialCrop().setBlockName("presidentialWeedPlant");
 		olWeedPlant = new OlCrop().setBlockName("olWeedPlant");
+		purpKushWeedPlant = new purpKushCrop().setBlockName("purpKushWeedPlant");
+		sourDWeedPlant = new sourDCrop().setBlockName("sourDWeedPlant");
 		
 		//Weed Seeds
 		reggieSeed = new ItemSeeds(reggieWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("reggieSeed").setTextureName("briansmod:reggieseed");
 		perpSeed = new ItemSeeds(perpWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("perpSeed").setTextureName("briansmod:perpseed");
 		presidentialSeed = new ItemSeeds(presidentialWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("presidentialSeed").setTextureName("briansmod:presidentialseed");
 		olSeed = new ItemSeeds(olWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("olSeed").setTextureName("briansmod:olseed");
+		purpKushSeed = new ItemSeeds(purpKushWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("purpKushSeed").setTextureName("briansmod:presidentialSeed");
+		sourDSeed = new ItemSeeds(sourDWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("sourDSeed").setTextureName("briansmod:sourdSeed");
 		
 		//Weed Strains
 		reggieStrain = new Item().setUnlocalizedName("reggieStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:reggieWeed");
 		perpStrain = new Item().setUnlocalizedName("perpStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:perpWeed");
 		presidentialStrain = new Item().setUnlocalizedName("presidentialStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:presidentialWeed");
 		olStrain = new Item().setUnlocalizedName("olStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:olWeed");
+		purpKushStrain = new Item().setUnlocalizedName("purpKushStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:presidentialWeed");
+		sourDStrain = new Item().setUnlocalizedName("sourDStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:sourdWeed");
 		
 		//Machines
 		geneticModule = new Item().setUnlocalizedName("geneticModule").setCreativeTab(this.tabCustom).setMaxStackSize(64).setTextureName("briansmod:gmodule");
@@ -154,7 +170,10 @@ public class Main {
 		perpBlunt = new blunt(0, 0, false, 60, 3, 1.0f).setCreativeTab(this.tabWeed).setUnlocalizedName("perpBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
 		presidentialBlunt = new blunt(0, 0, false, 80, 4, 1.0f).setCreativeTab(this.tabWeed).setUnlocalizedName("presidentialBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
 		olBlunt = new blunt(0, 0, false, 100, 5, 1.0f).setCreativeTab(this.tabWeed).setUnlocalizedName("olBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
-	
+		purpKushBlunt = new blunt(0, 0, false, 30, 12, 1.0f).setCreativeTab(this.tabWeed).setUnlocalizedName("purpKushBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		sourDBlunt = new blunt(0, 0, false, 55, 8, 1.0f).setCreativeTab(this.tabWeed).setUnlocalizedName("sourDBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		
+		
 		/*
 		----------------------------------------------------------
 		----------------------------------------------------------
@@ -168,18 +187,24 @@ public class Main {
 		GameRegistry.registerItem(perpSeed, "perpSeed");
 		GameRegistry.registerItem(presidentialSeed, "presidentialSeed");
 		GameRegistry.registerItem(olSeed, "olSeed");
+		GameRegistry.registerItem(purpKushSeed, "purpKushSeed");
+		GameRegistry.registerItem(sourDSeed, "sourDSeed");
 		
 		//Weed Strains
 		GameRegistry.registerItem(reggieStrain, "reggieStrain");
 		GameRegistry.registerItem(perpStrain, "perpStrain");
 		GameRegistry.registerItem(presidentialStrain, "presidentialStrain");
 		GameRegistry.registerItem(olStrain, "olStrain");
+		GameRegistry.registerItem(purpKushStrain, "purpKushStrain");
+		GameRegistry.registerItem(sourDStrain, "sourDStrain");
 		
 		//Weed Crops
 		GameRegistry.registerBlock(reggieWeedPlant, "reggieWeedPlant");
 		GameRegistry.registerBlock(perpWeedPlant, "perpWeedPlant");
 		GameRegistry.registerBlock(presidentialWeedPlant, "presidentialWeedPlant");
 		GameRegistry.registerBlock(olWeedPlant, "olWeedPlant");
+		GameRegistry.registerBlock(purpKushWeedPlant, "purpKushWeedPlant");
+		GameRegistry.registerBlock(sourDWeedPlant, "sourDWeedPlant");
 		
 		//Machines
 		GameRegistry.registerItem(mPlate, "mPlate");
@@ -200,6 +225,8 @@ public class Main {
 		GameRegistry.registerItem(perpBlunt, "perpBlunt");
 		GameRegistry.registerItem(presidentialBlunt, "presidentialBlunt");
 		GameRegistry.registerItem(olBlunt, "olBlunt");
+		GameRegistry.registerItem(purpKushBlunt, "purpKushBlunt");
+		GameRegistry.registerItem(sourDBlunt, "sourDBlunt");
 		
 		/*
 		----------------------------------------------------------
@@ -214,6 +241,8 @@ public class Main {
 		GameRegistry.addShapelessRecipe(new ItemStack(perpSeed, 1), new ItemStack(reggieSeed,1 ), new ItemStack(Items.melon_seeds, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(presidentialSeed, 1), new ItemStack(Items.melon_seeds, 1), new ItemStack(Items.pumpkin_seeds, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(olSeed, 1), new ItemStack(perpSeed, 1), new ItemStack(Items.pumpkin_seeds, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(purpKushSeed, 1), new ItemStack(perpSeed, 1), new ItemStack(presidentialSeed, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(sourDSeed, 1), new ItemStack(presidentialSeed, 1), new ItemStack(Items.coal, 1));
 		
 		//Machines
 		GameRegistry.addShapedRecipe(new ItemStack(mPlate, 1), new Object[] {"III", "III", "   ", 'I', Items.iron_ingot});
@@ -231,6 +260,8 @@ public class Main {
 		GameRegistry.addShapelessRecipe(new ItemStack(presidentialBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(presidentialStrain, 1), new ItemStack(presidentialStrain, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(perpBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(perpStrain, 1), new ItemStack(perpStrain, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(olBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(olStrain, 1), new ItemStack(olStrain, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(purpKushBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(purpKushStrain, 1), new ItemStack(purpKushStrain, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(sourDBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(sourDStrain, 1), new ItemStack(sourDStrain, 1));
 		
 	}
      
