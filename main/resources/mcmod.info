@@ -1,15 +1,15 @@
 [
 {
-  "modid": "briansmod",
-  "name": "Brian's Mod",
-  "description": "Brian's Imaginations + Minecraft Optimazations. In a Mod....... What a Brilliant Idea!",
-  "version": "2.1.2",
-  "mcversion": "1.7.2",
+  "modid": "examplemod",
+  "name": "Example Mod",
+  "description": "Example placeholder mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Lonely_Retard_XD"],
-  "credits": "My Mind. (It's so Smexy)",
-  "logoFile": "briansmod.png",
+  "authorList": ["ExampleDude"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
   "screenshots": [],
   "dependencies": []
 }

@@ -11,16 +11,16 @@ import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
-import com.briansmod.blocks.BMCrop;
+import com.briansmod.blocks.OlCrop;
+import com.briansmod.blocks.PerpCrop;
 import com.briansmod.blocks.PigSkinBlock;
-import com.briansmod.blocks.PresidentialWeedCrop;
-import com.briansmod.blocks.SeedMachine;
+import com.briansmod.blocks.PresidentialCrop;
+import com.briansmod.blocks.WeedCrop;
 import com.briansmod.items.PigSkin;
 import com.briansmod.items.blunt;
 import com.briansmod.tools.PigSkinAxe;
 import com.briansmod.tools.PigSkinHoe;
 import com.briansmod.tools.PigSkinShovel;
-import com.briansmod.weapons.Dagger;
 import com.briansmod.weapons.Flipper;
 
 import cpw.mods.fml.common.Mod;
@@ -40,13 +40,19 @@ public class Main {
 	    @Override
 	    @SideOnly(Side.CLIENT)
 	    public Item getTabIconItem() {
-	        return reggieBlunt;
+	        return mPlate;
 	    }
 	};
 	
+	public static CreativeTabs tabWeed = new CreativeTabs("tabWeed") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public Item getTabIconItem() {
+			return perpStrain;
+		}
+	};
+	
 	//Tool Materials
-	public static ToolMaterial steeleToolMaterial = EnumHelper.addToolMaterial("steeleToolMaterial", 3, 750, 6.0f, 2.5f, 10);
-	public static ToolMaterial tsteeleToolMaterial = EnumHelper.addToolMaterial("tsteeleToolMaterial", 3, 800, 7.5f, 2.7f, 10);
 	public static ToolMaterial pigSkinToolMaterial = EnumHelper.addToolMaterial("pigSkinToolMaterial",3, 450, 4.5f, 15.0f, 10);
 	
 	/*
@@ -58,6 +64,31 @@ public class Main {
 	---------------------------------------------------------- 
 	*/
 	
+	//Weed Seeds
+	public static Item reggieSeed;
+	public static Item perpSeed;
+	public static Item presidentialSeed;
+	public static Item olSeed;
+	
+	//Weed Strains
+	public static Item reggieStrain;
+	public static Item perpStrain;
+	public static Item presidentialStrain;
+	public static Item olStrain;
+	
+	//Weed plants
+	public static Block reggieWeedPlant;
+	public static Block perpWeedPlant;
+	public static Block presidentialWeedPlant;
+	public static Block olWeedPlant;
+	
+	//Blunt Items
+	public static Item rollingPapers;
+	public static Item reggieBlunt;
+	public static Item perpBlunt;
+	public static Item presidentialBlunt;
+	public static Item olBlunt;
+	
 	//PigSkin
 	public static Item pigAxe;
 	public static Item pigSpade;
@@ -66,42 +97,13 @@ public class Main {
 	public static Item flipper;
 	public static Block pigSkinBlock;
 	public static Item pigSkin;
-	
-	//Daggers
-	public static Item sDagger;
-	public static Item tDagger;
-	
+
 	// Machine Items
 	public static Item mPlate;
 	public static Item geneticModule;
-	public static Block seedMachine;
-	
-	//Seeds
-	public static Item reggieSeed;
-	public static Item perpSeed;
-	public static Item presidentialSeed;
-	public static Item olSeed;
-	
-	//Weed Strains
-	public static Item reggieWeed;
-	public static Item perpWeed;
-	public static Item presidentialWeed;
-	public static Item olWeed;
-	
-	//Plants
-	public static Block reggieWeedPlant;
-	public static Block perpWeedPlant;
-	public static Block presidentialWeedPlant;
-	public static Block olWeedPlant;
-	
-	//Blunts
-	public static Item reggieBlunt;
-	public static Item perpBlunt;
-	public static Item presidentialBlunt;
-	public static Item olBlunt;
-	public static Item rollingPapers;
 	
 	public static final String modid = "briansmod";
+
 	
 	@EventHandler
      public void preInit(FMLPreInitializationEvent event) {
@@ -114,30 +116,26 @@ public class Main {
 		----------------------------------------------------------
 		---------------------------------------------------------- 
 		*/
-		//Weed Seeds
-		reggieSeed = new ItemSeeds(reggieWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("reggieSeed").setTextureName("briansmod:reggieseed");
-		perpSeed = new ItemSeeds(perpWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("perpSeed").setTextureName("briansmod:perpseed");
-		presidentialSeed = new ItemSeeds(presidentialWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("presidentialSeed").setTextureName("briansmod:presseed");
-		olSeed = new ItemSeeds(olWeedPlant, Blocks.farmland).setCreativeTab(this.tabCustom).setUnlocalizedName("olSeed").setTextureName("briansmod:olseed");
 		
-		//Weed Plants
-		reggieWeedPlant = new BMCrop().setBlockName("reggieWeedPlant");
-		perpWeedPlant = new BMCrop().setBlockName("perpWeedPlant");
-		presidentialWeedPlant = new BMCrop().setBlockName("presidentialWeedPlant");
-		olWeedPlant = new BMCrop().setBlockName("olWeedPlant");
+		//Weed Crops
+		reggieWeedPlant = new WeedCrop().setBlockName("reggieWeedPlant");
+		perpWeedPlant = new PerpCrop().setBlockName("perpWeedPlant");
+		presidentialWeedPlant = new PresidentialCrop().setBlockName("presidentialWeedPlant");
+		olWeedPlant = new OlCrop().setBlockName("olWeedPlant");
+		
+		//Weed Seeds
+		reggieSeed = new ItemSeeds(reggieWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("reggieSeed").setTextureName("briansmod:reggieseed");
+		perpSeed = new ItemSeeds(perpWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("perpSeed").setTextureName("briansmod:perpseed");
+		presidentialSeed = new ItemSeeds(presidentialWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("presidentialSeed").setTextureName("briansmod:presidentialseed");
+		olSeed = new ItemSeeds(olWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("olSeed").setTextureName("briansmod:olseed");
 		
 		//Weed Strains
-		reggieWeed = new Item().setUnlocalizedName("reggieWeed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:reggieweed");
-		perpWeed = new Item().setUnlocalizedName("perpWeed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:perpweed");
-		presidentialWeed = new Item().setUnlocalizedName("presidentialWeed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:presidentialweed");
-		olWeed = new Item().setUnlocalizedName("olWeed").setCreativeTab(this.tabCustom).setMaxStackSize(29).setTextureName("briansmod:olweed");
-		
-		//Blunts
-		reggieBlunt = new blunt(0, 0, false, 40, 1, 1.0f).setUnlocalizedName("reggieBlunt").setCreativeTab(this.tabCustom).setMaxStackSize(16).setTextureName("briansmod:blunt");
-		rollingPapers = new Item().setUnlocalizedName("rollingPapers").setCreativeTab(this.tabCustom).setMaxStackSize(8).setTextureName("briansmod:rollingpaper");
+		reggieStrain = new Item().setUnlocalizedName("reggieStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:reggieWeed");
+		perpStrain = new Item().setUnlocalizedName("perpStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:perpWeed");
+		presidentialStrain = new Item().setUnlocalizedName("presidentialStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:presidentialWeed");
+		olStrain = new Item().setUnlocalizedName("olStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:olWeed");
 		
 		//Machines
-		seedMachine = new SeedMachine(Material.iron).setHardness(5f).setStepSound(Block.soundTypeMetal).setBlockName("seedMachine").setCreativeTab(this.tabCustom).setBlockTextureName("briansmod:seedmachine");
 		geneticModule = new Item().setUnlocalizedName("geneticModule").setCreativeTab(this.tabCustom).setMaxStackSize(64).setTextureName("briansmod:gmodule");
 		mPlate = new Item().setUnlocalizedName("mPlate").setCreativeTab(this.tabCustom).setMaxStackSize(64).setTextureName("briansmod:mplate");
 		
@@ -150,10 +148,13 @@ public class Main {
 		pigSkinBlock = new PigSkinBlock(Material.wood).setHardness(0.5f).setCreativeTab(this.tabCustom).setBlockName("pigSkinBlock").setBlockTextureName("briansmod:pigskinblock");
 		pigSkin = new PigSkin().setCreativeTab(this.tabCustom).setMaxStackSize(16).setUnlocalizedName("pigSkin").setTextureName("briansmod:pigskin");
 		
-		//Daggers
-		sDagger = new Dagger(steeleToolMaterial).setCreativeTab(this.tabCustom).setMaxStackSize(1).setUnlocalizedName("sDagger").setTextureName("briansmod:steeledagger");
-		tDagger = new Dagger(tsteeleToolMaterial).setCreativeTab(this.tabCustom).setMaxStackSize(1).setUnlocalizedName("tDagger").setTextureName("briansmod:rsteeldagger");
-		
+		//Blunts
+		rollingPapers = new Item().setCreativeTab(this.tabWeed).setUnlocalizedName("rollingPapers").setTextureName("briansmod:rollingpaper").setMaxStackSize(8);
+		reggieBlunt = new blunt(0, 0, false, 40, 2, 1.0f).setCreativeTab(this.tabWeed).setUnlocalizedName("reggieBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		perpBlunt = new blunt(0, 0, false, 60, 3, 1.0f).setCreativeTab(this.tabWeed).setUnlocalizedName("perpBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		presidentialBlunt = new blunt(0, 0, false, 80, 4, 1.0f).setCreativeTab(this.tabWeed).setUnlocalizedName("presidentialBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		olBlunt = new blunt(0, 0, false, 100, 5, 1.0f).setCreativeTab(this.tabWeed).setUnlocalizedName("olBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+	
 		/*
 		----------------------------------------------------------
 		----------------------------------------------------------
@@ -162,33 +163,27 @@ public class Main {
 		----------------------------------------------------------
 		---------------------------------------------------------- 
 		*/
-		
 		//Weed Seeds
 		GameRegistry.registerItem(reggieSeed, "reggieSeed");
 		GameRegistry.registerItem(perpSeed, "perpSeed");
 		GameRegistry.registerItem(presidentialSeed, "presidentialSeed");
 		GameRegistry.registerItem(olSeed, "olSeed");
 		
-		//Weed Plants
+		//Weed Strains
+		GameRegistry.registerItem(reggieStrain, "reggieStrain");
+		GameRegistry.registerItem(perpStrain, "perpStrain");
+		GameRegistry.registerItem(presidentialStrain, "presidentialStrain");
+		GameRegistry.registerItem(olStrain, "olStrain");
+		
+		//Weed Crops
 		GameRegistry.registerBlock(reggieWeedPlant, "reggieWeedPlant");
 		GameRegistry.registerBlock(perpWeedPlant, "perpWeedPlant");
 		GameRegistry.registerBlock(presidentialWeedPlant, "presidentialWeedPlant");
 		GameRegistry.registerBlock(olWeedPlant, "olWeedPlant");
 		
-		//Weed Strains
-		GameRegistry.registerItem(reggieWeed, "reggieWeed");
-		GameRegistry.registerItem(perpWeed, "perpWeed");
-		GameRegistry.registerItem(presidentialWeed, "presidentialWeed");
-		GameRegistry.registerItem(olWeed, "olWeed");
-		
 		//Machines
-		GameRegistry.registerBlock(seedMachine, "seedMachine");
 		GameRegistry.registerItem(mPlate, "mPlate");
 		GameRegistry.registerItem(geneticModule, "geneticModule");
-		
-		//Blunts
-		GameRegistry.registerItem(reggieBlunt, "reggieBlunt");
-		GameRegistry.registerItem(rollingPapers, "rollingPapers");
 		
 		//Pig Skin Mod (My First Project Intergrated)
 		GameRegistry.registerItem(pigAxe, "pigAxe");
@@ -199,9 +194,12 @@ public class Main {
 		GameRegistry.registerBlock(pigSkinBlock, "pigSkinBlock");
 		GameRegistry.registerItem(pigSkin, "pigSkin");
 		
-		//Daggers
-		GameRegistry.registerItem(sDagger, "sDagger");
-		GameRegistry.registerItem(tDagger, "tDagger");
+		//Blunts
+		GameRegistry.registerItem(rollingPapers, "rollingPapers");
+		GameRegistry.registerItem(reggieBlunt, "reggieBlunt");
+		GameRegistry.registerItem(perpBlunt, "perpBlunt");
+		GameRegistry.registerItem(presidentialBlunt, "presidentialBlunt");
+		GameRegistry.registerItem(olBlunt, "olBlunt");
 		
 		/*
 		----------------------------------------------------------
@@ -211,10 +209,9 @@ public class Main {
 		----------------------------------------------------------
 		---------------------------------------------------------- 
 		*/
-		
 		//Seeds
 		GameRegistry.addShapelessRecipe(new ItemStack(reggieSeed, 1), new ItemStack(Items.wheat_seeds, 1), new ItemStack(Items.wheat_seeds, 1));
-		GameRegistry.addShapelessRecipe(new ItemStack(perpSeed, 1), new ItemStack(reggieSeed, 1), new ItemStack(Items.melon_seeds, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(perpSeed, 1), new ItemStack(reggieSeed,1 ), new ItemStack(Items.melon_seeds, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(presidentialSeed, 1), new ItemStack(Items.melon_seeds, 1), new ItemStack(Items.pumpkin_seeds, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(olSeed, 1), new ItemStack(perpSeed, 1), new ItemStack(Items.pumpkin_seeds, 1));
 		
@@ -222,16 +219,19 @@ public class Main {
 		GameRegistry.addShapedRecipe(new ItemStack(mPlate, 1), new Object[] {"III", "III", "   ", 'I', Items.iron_ingot});
 		GameRegistry.addShapedRecipe(new ItemStack(mPlate, 1), new Object[] {"   ", "III", "III", 'I', Items.iron_ingot});
 		GameRegistry.addShapedRecipe(new ItemStack(geneticModule, 1), new Object[] {"MRM", "RGR", "MRM", 'M', mPlate, 'R', Items.redstone, 'G', Items.glowstone_dust});
-		
-		//Blunts
-		GameRegistry.addShapelessRecipe(new ItemStack(rollingPapers, 1), new ItemStack(Items.paper, 1), new ItemStack(Items.paper));
-		GameRegistry.addShapelessRecipe(new ItemStack(reggieBlunt, 1), new ItemStack(reggieWeed, 1), new ItemStack(reggieWeed, 1), new ItemStack(rollingPapers, 1));
-		
+	
 		//PigSkin Mod
 		GameRegistry.addShapedRecipe(new ItemStack(flipper, 1), new Object[] {" GG", " PG", "P  ", 'P', pigSkinBlock, 'G', Blocks.gold_block});
 		GameRegistry.addShapedRecipe(new ItemStack(pigSkinBlock, 1), new Object[] {"PPP", "PPP", "PPP", 'P', pigSkin});
 		GameRegistry.addSmelting(Items.cooked_porkchop, new ItemStack(pigSkin), 450);
-	
+		
+		//Blunts
+		GameRegistry.addShapelessRecipe(new ItemStack(rollingPapers, 1), new ItemStack(Items.paper, 1), new ItemStack(Items.paper, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(reggieBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(reggieStrain, 1), new ItemStack(reggieStrain, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(presidentialBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(presidentialStrain, 1), new ItemStack(presidentialStrain, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(perpBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(perpStrain, 1), new ItemStack(perpStrain, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(olBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(olStrain, 1), new ItemStack(olStrain, 1));
+		
 	}
      
 	@EventHandler
