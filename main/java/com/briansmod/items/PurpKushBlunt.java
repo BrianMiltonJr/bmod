@@ -9,7 +9,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class blunt extends ItemFood{
+public class PurpKushBlunt extends ItemFood{
 	
 	/**
 	 * By Making a class called blunt and making the constructor to require the Effect, Duration, how strong the effect is, and how likely the effect is to happen
@@ -23,7 +23,7 @@ public class blunt extends ItemFood{
 	public int duaration2;
 	public int amplify2;
 	
-	public blunt(int hunger, float saturation, boolean isWolfFood)
+	public PurpKushBlunt(int hunger, float saturation, boolean isWolfFood)
 	{
 		super(hunger, saturation, isWolfFood);
 		setAlwaysEdible();
@@ -32,9 +32,10 @@ public class blunt extends ItemFood{
 	protected void onFoodEaten(ItemStack p_77849_1_, World p_77849_2_, EntityPlayer p_77849_3_)
     {
         if (!p_77849_2_.isRemote)
-        {            
-        	p_77849_3_.addPotionEffect(new PotionEffect(Potion.confusion.id, 300, 2));
-            p_77849_3_.addPotionEffect(new PotionEffect(Potion.hunger.id, 300, 2));
+        {
+        	p_77849_3_.addPotionEffect(new PotionEffect(Potion.confusion.id, 1125, 9));
+            p_77849_3_.addPotionEffect(new PotionEffect(Potion.hunger.id, 1125, 2));
+            p_77849_3_.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 1125, 2));
         }
         else
         {

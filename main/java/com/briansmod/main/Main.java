@@ -9,7 +9,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.briansmod.blocks.OlCrop;
@@ -19,7 +18,12 @@ import com.briansmod.blocks.PresidentialCrop;
 import com.briansmod.blocks.WeedCrop;
 import com.briansmod.blocks.purpKushCrop;
 import com.briansmod.blocks.sourDCrop;
+import com.briansmod.items.OompaLoompaBlunt;
+import com.briansmod.items.PerpBlunt;
 import com.briansmod.items.PigSkin;
+import com.briansmod.items.PresidentialBlunt;
+import com.briansmod.items.PurpKushBlunt;
+import com.briansmod.items.SourDBlunt;
 import com.briansmod.items.blunt;
 import com.briansmod.tools.PigSkinAxe;
 import com.briansmod.tools.PigSkinHoe;
@@ -170,12 +174,12 @@ public class Main {
 		
 		//Blunts
 		rollingPapers = new Item().setCreativeTab(this.tabWeed).setUnlocalizedName("rollingPapers").setTextureName("briansmod:rollingpaper").setMaxStackSize(8);
-		reggieBlunt = new blunt(0, 0, false).setCreativeTab(this.tabWeed).setUnlocalizedName("reggieBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
-		perpBlunt = new blunt(0, 0, false).setCreativeTab(this.tabWeed).setUnlocalizedName("perpBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
-		presidentialBlunt = new blunt(0, 0, false).setCreativeTab(this.tabWeed).setUnlocalizedName("presidentialBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
-		olBlunt = new blunt(0, 0, false).setCreativeTab(this.tabWeed).setUnlocalizedName("olBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
-		purpKushBlunt = new blunt(0, 0, false).setCreativeTab(this.tabWeed).setUnlocalizedName("purpKushBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
-		sourDBlunt = new blunt(0, 0, false).setCreativeTab(this.tabWeed).setUnlocalizedName("sourDBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		reggieBlunt = new blunt(20, 1.0F, false).setCreativeTab(this.tabWeed).setUnlocalizedName("reggieBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		perpBlunt = new PerpBlunt(20, 1.0F, false).setCreativeTab(this.tabWeed).setUnlocalizedName("perpBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		presidentialBlunt = new PresidentialBlunt(0, 1.0F, false).setCreativeTab(this.tabWeed).setUnlocalizedName("presidentialBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		olBlunt = new OompaLoompaBlunt(20, 1.0F, false).setCreativeTab(this.tabWeed).setUnlocalizedName("olBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		purpKushBlunt = new PurpKushBlunt(20, 1.0F, false).setCreativeTab(this.tabWeed).setUnlocalizedName("purpKushBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
+		sourDBlunt = new SourDBlunt(20, 1.0F, false).setCreativeTab(this.tabWeed).setUnlocalizedName("sourDBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
 		
 		//Liquor
 		
