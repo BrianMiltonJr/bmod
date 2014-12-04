@@ -7,8 +7,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.briansmod.blocks.OlCrop;
@@ -18,6 +20,7 @@ import com.briansmod.blocks.PresidentialCrop;
 import com.briansmod.blocks.WeedCrop;
 import com.briansmod.blocks.purpKushCrop;
 import com.briansmod.blocks.sourDCrop;
+import com.briansmod.items.ECookie;
 import com.briansmod.items.OompaLoompaBlunt;
 import com.briansmod.items.PerpBlunt;
 import com.briansmod.items.PigSkin;
@@ -39,7 +42,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid="briansmod", name="briansmod", version="2.1.2")
+@Mod(modid="briansmod", name="briansmod", version="2.1.7")
 public class Main {
 	
 	//Sets Up Creative Tab
@@ -104,9 +107,6 @@ public class Main {
 	public static Item purpKushBlunt;
 	public static Item sourDBlunt;
 	
-	//Liquor
-	public static Item vodka;
-	
 	//PigSkin
 	public static Item pigAxe;
 	public static Item pigSpade;
@@ -119,6 +119,12 @@ public class Main {
 	// Machine Items
 	public static Item mPlate;
 	public static Item geneticModule;
+	
+	// Edibles Update
+	public static Item dough;
+	public static Item butter;
+	public static Item iButter;
+	public static Item eCookie;
 	
 	public static final String modid = "briansmod";
 
@@ -148,8 +154,8 @@ public class Main {
 		perpSeed = new ItemSeeds(perpWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("perpSeed").setTextureName("briansmod:perpseed");
 		presidentialSeed = new ItemSeeds(presidentialWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("presidentialSeed").setTextureName("briansmod:presidentialseed");
 		olSeed = new ItemSeeds(olWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("olSeed").setTextureName("briansmod:olseed");
-		purpKushSeed = new ItemSeeds(purpKushWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("purpKushSeed").setTextureName("briansmod:presidentialSeed");
-		sourDSeed = new ItemSeeds(sourDWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("sourDSeed").setTextureName("briansmod:sourdSeed");
+		purpKushSeed = new ItemSeeds(purpKushWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("purpKushSeed").setTextureName("briansmod:presidentialseed");
+		sourDSeed = new ItemSeeds(sourDWeedPlant, Blocks.farmland).setCreativeTab(this.tabWeed).setUnlocalizedName("sourDSeed").setTextureName("briansmod:sourdseed");
 		
 		//Weed Strains
 		reggieStrain = new Item().setUnlocalizedName("reggieStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:reggieWeed");
@@ -181,8 +187,11 @@ public class Main {
 		purpKushBlunt = new PurpKushBlunt(20, 1.0F, false).setCreativeTab(this.tabWeed).setUnlocalizedName("purpKushBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
 		sourDBlunt = new SourDBlunt(20, 1.0F, false).setCreativeTab(this.tabWeed).setUnlocalizedName("sourDBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
 		
-		//Liquor
-		
+		//Edibles Update
+		butter = new Item().setCreativeTab(this.tabWeed).setUnlocalizedName("butter").setTextureName("briansmod:butter").setMaxStackSize(64);
+		iButter = new Item().setCreativeTab(this.tabWeed).setUnlocalizedName("iButter").setTextureName("briansmod:iButter").setMaxStackSize(64);
+		dough = new Item().setCreativeTab(this.tabWeed).setUnlocalizedName("dough").setTextureName("briansmod:dough").setMaxStackSize(64);
+		eCookie = new ECookie(20, 1f, true).setCreativeTab(this.tabWeed).setUnlocalizedName("eCookie").setTextureName("briansmod:eCookie").setMaxStackSize(32);
 		
 		/*
 		----------------------------------------------------------
@@ -238,6 +247,12 @@ public class Main {
 		GameRegistry.registerItem(purpKushBlunt, "purpKushBlunt");
 		GameRegistry.registerItem(sourDBlunt, "sourDBlunt");
 		
+		//Edibles Update
+		GameRegistry.registerItem(butter, "butter");
+		GameRegistry.registerItem(iButter, "iButter");
+		GameRegistry.registerItem(dough, "dough");
+		GameRegistry.registerItem(eCookie, "eCookie");
+		
 		/*
 		----------------------------------------------------------
 		----------------------------------------------------------
@@ -272,6 +287,12 @@ public class Main {
 		GameRegistry.addShapelessRecipe(new ItemStack(olBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(olStrain, 1), new ItemStack(olStrain, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(purpKushBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(purpKushStrain, 1), new ItemStack(purpKushStrain, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(sourDBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(sourDStrain, 1), new ItemStack(sourDStrain, 1));
+		
+		//Edibles Update
+		GameRegistry.addShapelessRecipe(new ItemStack(butter, 4), new ItemStack(Items.milk_bucket, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(iButter, 1), new ItemStack(butter), new ItemStack(butter), new ItemStack(perpStrain));
+		GameRegistry.addShapedRecipe(new ItemStack(dough, 2), new Object[]{"   ", "WMW", "BWB", 'W', Items.wheat, 'M', Items.milk_bucket, 'B', iButter});
+		GameRegistry.addSmelting(new ItemStack(dough), new ItemStack(eCookie, 3), 200);
 		
 	}
      
