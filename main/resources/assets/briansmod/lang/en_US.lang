@@ -1,28 +1,26 @@
 item.rollingPapers.name=Rolling Papers
+
 item.reggieBlunt.name=Reggie Blunt
 item.perpBlunt.name=Perp Blunt
 item.presidentialBlunt.name=Presidential Blunt
 item.olBlunt.name=Oompa Loompa Blunt
 item.purpKushBlunt.name=Purple Kush Blunt
 item.sourDBlunt.name=Sour Diesel Blunt
-item.reggieSeed.name=Reggie Seed
-item.reggieStrain.name=Reggie Weed
-tile.reggieWeedPlant.name=Reggie Weed Plant
-item.perpSeed.name=Perp Seed
-item.perpStrain.name=Perp Weed
-tile.perpWeedPlant.name=Perp Weed Plant
-item.presidentialSeed.name=Presidential Seed
-item.presidentialStrain.name=Presidential Weed
-tile.presidentialWeedPlant.name=Presidential Weed Plant
-item.olSeed.name=Oompa Loompa Seed
-item.olStrain.name=Oompa Loompa Weed
-tile.olWeedPlant.name=Oompa Loompa Weed Plant
-item.purpKushSeed.name=Purple Kush Seed
-item.purpKushStrain.name=Purple Kush Weed
-tile.purpKushWeedPlant.name=Purple kush Weed Plant
-item.sourDSeed.name=Sour Diesel Seed
+
 item.sourDStrain.name=Sour Diesel Weed
-tile.sourDWeedPlant.name=Sour Diesel Weed Plant
+item.reggieStrain.name=Reggie Weed
+item.perpStrain.name=Perp Weed
+item.presidentialStrain.name=Presidential Weed
+item.olStrain.name=Oompa Loompa Weed
+item.purpKushStrain.name=Purple Kush Weed
+
+item.reggieSeed.name=Reggie Seed
+item.perpSeed.name=Perp Seed
+item.presidentialSeed.name=Presidential Seed
+item.olSeed.name=Oompa Loompa Seed
+item.purpKushSeed.name=Purple Kush Seed
+item.sourDSeed.name=Sour Diesel Seed
+
 item.butter.name=Butter
 item.mPlate.name=Machine Plating
 item.dough.name=Dough
@@ -40,3 +38,10 @@ itemGroup.tabWeed=The "Herb" Section
 tile.pigSkinBlock.name=Pig Skin Block
 item.pigSkin.name=Pig Skin
 item.flipper.name=The Mighty Flipper
+
+tile.perpWeedPlant.name=Perp Weed Plant
+tile.reggieWeedPlant.name=Reggie Weed Plant
+tile.purpKushWeedPlant.name=Purple Kush Weed Plant
+tile.sourDWeedPlant.name=Sour Diesel Weed Plant
+tile.olWeedPlant.name=Oompa Loompa Weed Plant
+tile.presidentialWeedPlant.name=Presidential Weed Plant

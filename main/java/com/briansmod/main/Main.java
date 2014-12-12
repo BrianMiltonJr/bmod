@@ -42,7 +42,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid="briansmod", name="briansmod", version="2.1.7")
+@Mod(modid="briansmod", name="briansmod", version="2.1.7.3")
 public class Main {
 	
 	//Sets Up Creative Tab
@@ -58,7 +58,7 @@ public class Main {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
-			return perpStrain;
+			return eCookie;
 		}
 	};
 	

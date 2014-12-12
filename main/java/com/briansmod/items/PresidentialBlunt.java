@@ -3,6 +3,7 @@ package com.briansmod.items;
 import java.util.Random;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -40,5 +41,15 @@ public class PresidentialBlunt extends ItemFood{
         {
             super.onFoodEaten(p_77849_1_, p_77849_2_, p_77849_3_);
         }
+    }
+	
+	public EnumAction getItemUseAction(ItemStack p_77661_1_)
+    {
+        return EnumAction.none;
+    }
+	
+	public int getMaxItemUseDuration(ItemStack p_77626_1_)
+    {
+        return 1;
     }
 }
