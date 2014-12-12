@@ -22,22 +22,10 @@ item.purpKushSeed.name=Purple Kush Seed
 item.sourDSeed.name=Sour Diesel Seed
 
 item.butter.name=Butter
-item.mPlate.name=Machine Plating
 item.dough.name=Dough
 item.eCookie.name=Herb Cookie
 item.iButter.name= Infused Butter
-item.geneticModule.name=Genetic Module
-item.pigAxe.name=PigSkin Axe
-item.pigHoe.name=PigSkin Hoe
-item.pigSpade.name=PigSkin Spade
-item.pigPick.name=PigSkin Pickaxe
-item.sDagger.name=Steel Dagger
-item.tDagger.name=Reinforced Steel Dagger
-itemGroup.briansmod=Brian's Mod
 itemGroup.tabWeed=The "Herb" Section
-tile.pigSkinBlock.name=Pig Skin Block
-item.pigSkin.name=Pig Skin
-item.flipper.name=The Mighty Flipper
 
 tile.perpWeedPlant.name=Perp Weed Plant
 tile.reggieWeedPlant.name=Reggie Weed Plant

@@ -15,7 +15,6 @@ import net.minecraftforge.common.util.EnumHelper;
 
 import com.briansmod.blocks.OlCrop;
 import com.briansmod.blocks.PerpCrop;
-import com.briansmod.blocks.PigSkinBlock;
 import com.briansmod.blocks.PresidentialCrop;
 import com.briansmod.blocks.WeedCrop;
 import com.briansmod.blocks.purpKushCrop;
@@ -28,10 +27,6 @@ import com.briansmod.items.PresidentialBlunt;
 import com.briansmod.items.PurpKushBlunt;
 import com.briansmod.items.SourDBlunt;
 import com.briansmod.items.blunt;
-import com.briansmod.tools.PigSkinAxe;
-import com.briansmod.tools.PigSkinHoe;
-import com.briansmod.tools.PigSkinShovel;
-import com.briansmod.weapons.Flipper;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -42,17 +37,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid="briansmod", name="briansmod", version="2.1.7.3")
+@Mod(modid="theWeedMod", name="The Weed Mod", version="2.2")
 public class Main {
 	
 	//Sets Up Creative Tab
-	public static CreativeTabs tabCustom = new CreativeTabs("briansmod") {
-	    @Override
-	    @SideOnly(Side.CLIENT)
-	    public Item getTabIconItem() {
-	        return mPlate;
-	    }
-	};
 	
 	public static CreativeTabs tabWeed = new CreativeTabs("tabWeed") {
 		@Override
@@ -106,20 +94,7 @@ public class Main {
 	public static Item olBlunt;
 	public static Item purpKushBlunt;
 	public static Item sourDBlunt;
-	
-	//PigSkin
-	public static Item pigAxe;
-	public static Item pigSpade;
-	public static Item pigHoe;
-	public static Item pigPick;
-	public static Item flipper;
-	public static Block pigSkinBlock;
-	public static Item pigSkin;
 
-	// Machine Items
-	public static Item mPlate;
-	public static Item geneticModule;
-	
 	// Edibles Update
 	public static Item dough;
 	public static Item butter;
@@ -164,20 +139,7 @@ public class Main {
 		olStrain = new Item().setUnlocalizedName("olStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:olWeed");
 		purpKushStrain = new Item().setUnlocalizedName("purpKushStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:presidentialWeed");
 		sourDStrain = new Item().setUnlocalizedName("sourDStrain").setCreativeTab(this.tabWeed).setMaxStackSize(30).setTextureName("briansmod:sourdWeed");
-		
-		//Machines
-		geneticModule = new Item().setUnlocalizedName("geneticModule").setCreativeTab(this.tabCustom).setMaxStackSize(64).setTextureName("briansmod:gmodule");
-		mPlate = new Item().setUnlocalizedName("mPlate").setCreativeTab(this.tabCustom).setMaxStackSize(64).setTextureName("briansmod:mplate");
-		
-		//PigSkin
-		pigAxe = new PigSkinAxe(pigSkinToolMaterial).setUnlocalizedName("pigAxe").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigaxe");
-		pigSpade = new PigSkinShovel(pigSkinToolMaterial).setUnlocalizedName("pigSpade").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigspade");
-		pigHoe = new PigSkinHoe(pigSkinToolMaterial).setUnlocalizedName("pigHoe").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pighoe");
-		pigPick = new PigSkinAxe(pigSkinToolMaterial).setUnlocalizedName("pigPick").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:pigpick");
-		flipper = new Flipper(pigSkinToolMaterial).setUnlocalizedName("flipper").setCreativeTab(this.tabCustom).setMaxStackSize(1).setTextureName("briansmod:flipper");
-		pigSkinBlock = new PigSkinBlock(Material.wood).setHardness(0.5f).setCreativeTab(this.tabCustom).setBlockName("pigSkinBlock").setBlockTextureName("briansmod:pigskinblock");
-		pigSkin = new PigSkin().setCreativeTab(this.tabCustom).setMaxStackSize(16).setUnlocalizedName("pigSkin").setTextureName("briansmod:pigskin");
-		
+
 		//Blunts
 		rollingPapers = new Item().setCreativeTab(this.tabWeed).setUnlocalizedName("rollingPapers").setTextureName("briansmod:rollingpaper").setMaxStackSize(8);
 		reggieBlunt = new blunt(20, 1.0F, false).setCreativeTab(this.tabWeed).setUnlocalizedName("reggieBlunt").setTextureName("briansmod:blunt").setMaxStackSize(8);
@@ -224,20 +186,7 @@ public class Main {
 		GameRegistry.registerBlock(olWeedPlant, "olWeedPlant");
 		GameRegistry.registerBlock(purpKushWeedPlant, "purpKushWeedPlant");
 		GameRegistry.registerBlock(sourDWeedPlant, "sourDWeedPlant");
-		
-		//Machines
-		GameRegistry.registerItem(mPlate, "mPlate");
-		GameRegistry.registerItem(geneticModule, "geneticModule");
-		
-		//Pig Skin Mod (My First Project Intergrated)
-		GameRegistry.registerItem(pigAxe, "pigAxe");
-		GameRegistry.registerItem(pigSpade, "pigSpade");
-		GameRegistry.registerItem(pigHoe, "pigHoe");
-		GameRegistry.registerItem(pigPick, "pigPick");
-		GameRegistry.registerItem(flipper, "flipper");
-		GameRegistry.registerBlock(pigSkinBlock, "pigSkinBlock");
-		GameRegistry.registerItem(pigSkin, "pigSkin");
-		
+
 		//Blunts
 		GameRegistry.registerItem(rollingPapers, "rollingPapers");
 		GameRegistry.registerItem(reggieBlunt, "reggieBlunt");
@@ -268,17 +217,7 @@ public class Main {
 		GameRegistry.addShapelessRecipe(new ItemStack(olSeed, 1), new ItemStack(perpSeed, 1), new ItemStack(Items.pumpkin_seeds, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(purpKushSeed, 1), new ItemStack(perpSeed, 1), new ItemStack(presidentialSeed, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(sourDSeed, 1), new ItemStack(presidentialSeed, 1), new ItemStack(Items.coal, 1));
-		
-		//Machines
-		GameRegistry.addShapedRecipe(new ItemStack(mPlate, 1), new Object[] {"III", "III", "   ", 'I', Items.iron_ingot});
-		GameRegistry.addShapedRecipe(new ItemStack(mPlate, 1), new Object[] {"   ", "III", "III", 'I', Items.iron_ingot});
-		GameRegistry.addShapedRecipe(new ItemStack(geneticModule, 1), new Object[] {"MRM", "RGR", "MRM", 'M', mPlate, 'R', Items.redstone, 'G', Items.glowstone_dust});
-	
-		//PigSkin Mod
-		GameRegistry.addShapedRecipe(new ItemStack(flipper, 1), new Object[] {" GG", " PG", "P  ", 'P', pigSkinBlock, 'G', Blocks.gold_block});
-		GameRegistry.addShapedRecipe(new ItemStack(pigSkinBlock, 1), new Object[] {"PPP", "PPP", "PPP", 'P', pigSkin});
-		GameRegistry.addSmelting(Items.cooked_porkchop, new ItemStack(pigSkin), 450);
-		
+
 		//Blunts
 		GameRegistry.addShapelessRecipe(new ItemStack(rollingPapers, 1), new ItemStack(Items.paper, 1), new ItemStack(Items.paper, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(reggieBlunt, 1), new ItemStack(rollingPapers, 1), new ItemStack(reggieStrain, 1), new ItemStack(reggieStrain, 1));
