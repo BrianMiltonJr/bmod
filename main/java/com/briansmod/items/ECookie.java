@@ -7,24 +7,31 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ECookie extends ItemFood{
+import com.briansmod.main.Main;
 
-	public ECookie(int p_i45339_1_, float p_i45339_2_, boolean p_i45339_3_) {
-		super(p_i45339_1_, p_i45339_2_, p_i45339_3_);
-		// TODO Auto-generated constructor stub
+public class ECookie extends ItemFood
+{
+
+	public ECookie()
+	{
+		super(20, 1f, true);
 		setAlwaysEdible();
+		setCreativeTab(Main.tabWeed);
+		setUnlocalizedName("eCookie");
+		setTextureName("briansmod:eCookie");
+		setMaxStackSize(32);
 	}
-	
-	protected void onFoodEaten(ItemStack p_77849_1_, World p_77849_2_, EntityPlayer p_77849_3_)
-    {
-        if (!p_77849_2_.isRemote)
-        {
-            p_77849_3_.addPotionEffect(new PotionEffect(Potion.confusion.id, 1200, 5));
-        }
-        else
-        {
-            super.onFoodEaten(p_77849_1_, p_77849_2_, p_77849_3_);
-        }
-    }
-	
+
+	protected void onFoodEaten(ItemStack itemStack, World world,
+			EntityPlayer player)
+	{
+		if (!world.isRemote)
+		{
+			player.addPotionEffect(new PotionEffect(Potion.confusion.id, 1200, 5));
+		} else
+		{
+			super.onFoodEaten(itemStack, world, player);
+		}
+	}
+
 }
