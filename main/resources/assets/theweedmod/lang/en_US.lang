@@ -1,0 +1,45 @@
+item.rollingPapers.name=Rolling Papers
+
+item.reggieBlunt.name=Reggie Blunt
+item.perpBlunt.name=Perp Blunt
+item.presidentialBlunt.name=Presidential Blunt
+item.olBlunt.name=Oompa Loompa Blunt
+item.purpKushBlunt.name=Purple Kush Blunt
+item.sourDBlunt.name=Sour Diesel Blunt
+
+item.sourDStrain.name=Sour Diesel Weed
+item.reggieStrain.name=Reggie Weed
+item.perpStrain.name=Perp Weed
+item.presidentialStrain.name=Presidential Weed
+item.olStrain.name=Oompa Loompa Weed
+item.purpKushStrain.name=Purple Kush Weed
+
+item.reggieSeed.name=Reggie Seed
+item.perpSeed.name=Perp Seed
+item.presidentialSeed.name=Presidential Seed
+item.olSeed.name=Oompa Loompa Seed
+item.purpKushSeed.name=Purple Kush Seed
+item.sourDSeed.name=Sour Diesel Seed
+
+item.butter.name=Butter
+item.dough.name=Dough
+item.eCookie.name=Herb Cookie
+item.iButter.name=Infused Butter
+item.cNuggetsRaw.name=Raw Chicken Nuggets
+item.cNuggets.name=Chicken Nuggets
+item.cNuggetsInfusedRaw.name=Raw Infused Chicken Nuggets
+item.cNuggetsInfused.name=Infused Chicken Nuggets
+item.porkchopInfusedRaw.name=Raw Infused Porkchop
+item.porkchopInfused.name=Infused Porkchop
+item.steakInfusedRaw.name=Raw Infused Steak
+item.steakInfused.name=Infused Steak
+item.potatoInfusedRaw.name=Infused Potato
+item.potatoInfused.name=Cooked Infused Potato
+itemGroup.tabWeed=The "Herb" Section
+
+tile.perpWeedPlant.name=Perp Weed Plant
+tile.reggieWeedPlant.name=Reggie Weed Plant
+tile.purpKushWeedPlant.name=Purple Kush Weed Plant
+tile.sourDWeedPlant.name=Sour Diesel Weed Plant
+tile.olWeedPlant.name=Oompa Loompa Weed Plant
+tile.presidentialWeedPlant.name=Presidential Weed Plant
